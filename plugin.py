@@ -3,7 +3,7 @@
 # Author: flopp999
 #
 """
-<plugin key="Tibber" name="Tibber API 1.23" author="flopp999" version="1.232" wikilink="https://github.com/Shakelton52/Tibber-Domoticz-slow" externallink="https://tibber.com/se/invite/8af85f51">
+<plugin key="Tibber" name="Tibber API 1.23" author="flopp999" version="1.232s" wikilink="https://github.com/Shakelton52/Tibber-Domoticz-slow" externallink="https://tibber.com/se/invite/8af85f51">
     <description>
         <h2>Tibber API is used to fetch data from Tibber.com</h2><br/>
         <h2>Support me with a coffee &<a href="https://www.buymeacoffee.com/flopp999">https://www.buymeacoffee.com/flopp999</a></h2><br/>
@@ -57,7 +57,7 @@
 import Domoticz
 
 Package = True
-PUlse = 0  # set 1 if you want to have realtime data from pulse, you api key might be disabled because of excessive polling
+PUlse = 0  # set 1 if you want to have realtime data from pulse, your api key might be disabled because of excessive polling
 
 ABC = []
 
@@ -251,11 +251,11 @@ class BasePlugin:
                 for each in Data["data"]["viewer"]["homes"]:
                     if each["id"] == self.HomeID:
                         self.RealTime = each["features"]["realTimeConsumptionEnabled"]
-                if self.RealTime is False:
-                    Domoticz.Log("No real time hardware is installed")
+                if self.RealTime is False or PUlse == 0:
+                    Domoticz.Log("No real time hardware is installed or RTMess is disabled")
                     WriteDebug("No real time hardware is installed")
                 else:
-                    Domoticz.Log("Real time hardware is installed and will be fetched every 50 seconds")
+                    Domoticz.Log("Real time hardware is installed and will be fetched every 200 seconds")
                     WriteDebug("Real time hardware is installed")
                 _plugin.CheckRealTimeHardware.Disconnect()
 
