@@ -19,8 +19,8 @@ WARNING: Tibber probably will lock your API Key if you enable  Realtime Messurme
 
 ------- I am not responsible for any damage the plugin causes  ---------- 
 
--------- If you use the plugin, you accept this conditions.
---------- If you don`t accept this, don`t use it ------------------
+-------- If you use the plugin, you accept this conditions. --------------
+--------- If you do not accept this, you are entitled to  use it ------------------
 
 Cheers Shakelton52
 
