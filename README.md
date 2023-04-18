@@ -2,12 +2,12 @@
 Floppy999 archived the original repo. 
 The original script unfortunately polls the Realtime Values every 10 sec, which leads to a DoS Attack of the Tibber server.
 
-So this fork was necessary, in order to fix the code in order to prevent the plugin from exessive polling, but its only a mitigation-
+So this fork was necessary to fix the code in order to prevent the plugin from exessive polling, but its only a mitigation -
 The complete Realtime Messurment Polling has to be redesigned.
 
 Realtime Messurement is disabled by default.
 
-If you want to enable it, you have to set 
+If you want to enable it, you have to set. 
 PUlse = 1 
 in plugin.py
 
