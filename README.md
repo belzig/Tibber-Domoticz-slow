@@ -11,7 +11,7 @@ If you want to enable it, you have to set
 PUlse = 1 
 in plugin.py
 
-WARNING: Tibber probably lock your API Key if you enable  Realtime Messurment.
+WARNING: Tibber probably will lock your API Key if you enable  Realtime Messurment.
 
 ----- The Usage of this Version is completely without any guarantee, you use it on your own risk. I am not responsible for any damage the plugin causes ---------- 
 
