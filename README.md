@@ -1,4 +1,24 @@
-Floppy999 archived the original repo. So this fork was necessary, in order to fix the code in order to prevent the plugin from exessive polling the Tibber Server.
+-------
+Floppy999 archived the original repo. 
+The original script unfortunately polls the Realtime Values every 10 sec, which leads to a DoS Attack of the Tibber server.
+
+So this fork was necessary, in order to fix the code in order to prevent the plugin from exessive polling, but its only a mitigation-
+The complete Realtime Messurment Polling has to be redesigned.
+
+Realtime Messurement is disabled by default.
+
+If you want to enable it, you have to set 
+PUlse = 1 
+in plugin.py
+
+WARNING: Tibber probably lock your API Key if you enable  Realtime Messurment.
+
+----- The Usage of this Version is completely without any guarantee, you use it on your own risk. I am not responsible for any damage the plugin causes ---------- 
+
+Cheers Shakelton52
+
+-------------------------
+
 
 Important, you must Allow new devices, in Domoticz, Setup-Settings-System-Hardware/Devices.
 
