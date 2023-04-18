@@ -331,7 +331,7 @@ class BasePlugin:
         MinuteNow = (datetime.now().minute)
         self.Count += 1
 
-        if self.RealTime is True and self.AllSettings is True:
+        if self.RealTime is True and self.AllSettings is True and self.Count == 2:
             WriteDebug("onHeartbeatLivePowerEvery")
             async def LivePowerEvery():
                 try:
@@ -350,7 +350,7 @@ class BasePlugin:
                     pass
             asyncio.run(LivePowerEvery())
 
-        if self.Count == 5 and self.RealTime is True and self.AllSettings is True:
+        if self.Count == 14 and self.RealTime is True and self.AllSettings is True:
             WriteDebug("onHeartbeatLivePower")
             async def LivePower():
                 try:
@@ -408,7 +408,7 @@ class BasePlugin:
             self.MiniMaxMeanPriceUpdated = False
 
 
-        if self.Count >= 5:
+        if self.Count >= 19:
             self.Count = 0
 
 global _plugin
