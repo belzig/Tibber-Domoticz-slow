@@ -1,3 +1,5 @@
+Floppy999 archived the original repo. So this fork was necessary, in order to fix the code in order to prevent the plugin from exessive polling the Tibber Server.
+
 Important, you must Allow new devices, in Domoticz, Setup-Settings-System-Hardware/Devices.
 
 Create a folder with a name that you like in "domoticz/plugins"  
