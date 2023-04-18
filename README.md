@@ -13,7 +13,14 @@ in plugin.py
 
 WARNING: Tibber probably will lock your API Key if you enable  Realtime Messurment.
 
------ The Usage of this Version is completely without any guarantee, you use it on your own risk. I am not responsible for any damage the plugin causes ---------- 
+-----  The Usage of this Version is completely without any guarantee or support.
+
+------ YOU USE IT ON YOUR OWN RISK. 
+
+------- I am not responsible for any damage the plugin causes  ---------- 
+
+-------- If you use the plugin, you accept this conditions.
+--------- If you don`t accept this, don`t use it ------------------
 
 Cheers Shakelton52
 
