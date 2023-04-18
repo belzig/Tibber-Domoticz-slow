@@ -3,7 +3,7 @@
 # Author: flopp999
 #
 """
-<plugin key="Tibber" name="Tibber API 1.23" author="flopp999" version="1.231" wikilink="https://github.com/Shakelton52/Tibber-Domoticz" externallink="https://tibber.com/se/invite/8af85f51">
+<plugin key="Tibber" name="Tibber API 1.23" author="flopp999" version="1.232" wikilink="https://github.com/Shakelton52/Tibber-Domoticz" externallink="https://tibber.com/se/invite/8af85f51">
     <description>
         <h2>Tibber API is used to fetch data from Tibber.com</h2><br/>
         <h2>Support me with a coffee &<a href="https://www.buymeacoffee.com/flopp999">https://www.buymeacoffee.com/flopp999</a></h2><br/>
@@ -57,6 +57,7 @@
 import Domoticz
 
 Package = True
+PUlse = 0  # set 1 if you want to have realtime data from pulse, you api key might be disabled because of excessive polling
 
 ABC = []
 
@@ -331,7 +332,7 @@ class BasePlugin:
         MinuteNow = (datetime.now().minute)
         self.Count += 1
 
-        if self.RealTime is True and self.AllSettings is True and self.Count == 2:
+        if self.RealTime is True and self.AllSettings is True and self.Count == 2 and PUlse == 1:
             WriteDebug("onHeartbeatLivePowerEvery")
             async def LivePowerEvery():
                 try:
@@ -341,7 +342,7 @@ class BasePlugin:
                         for name,value in result["liveMeasurement"].items():
                             if value is not None:
                                 UpdateDevice(str(name), str(value))
-                    Domoticz.Log("Live power updated")
+                    Domoticz.Log("Live power updated P P U I")
                 except Exception as e:
                     Domoticz.Log(str(traceback.format_exc()))
                     Domoticz.Log(str(sys.exc_info()[0]))
@@ -350,7 +351,7 @@ class BasePlugin:
                     pass
             asyncio.run(LivePowerEvery())
 
-        if self.Count == 14 and self.RealTime is True and self.AllSettings is True:
+        if self.Count == 14 and self.RealTime is True and self.AllSettings is True and PUlse == 1 :
             WriteDebug("onHeartbeatLivePower")
             async def LivePower():
                 try:
@@ -361,7 +362,7 @@ class BasePlugin:
                             if value is not None:
                                 UpdateDevice(str(name), str(value))
                     self.LiveDataUpdated = True
-                    Domoticz.Log("Live power updated")
+                    Domoticz.Log("Live power updated Min Max")
                 except Exception as e:
                     WriteDebug("Something went wrong during fetching Live Power from Tibber")
                     WriteDebug(str(e))
@@ -369,7 +370,7 @@ class BasePlugin:
             asyncio.run(LivePower())
 
 
-        if self.Count == 4 and MinuteNow <= 59 and self.LiveDataUpdated is False and self.RealTime is True and self.AllSettings is True:
+        if self.Count == 4 and MinuteNow <= 59 and self.LiveDataUpdated is False and self.RealTime is True and self.AllSettings is True and PUlse == 1:
             WriteDebug("onHeartbeatLiveData")
 
             async def LiveData():
@@ -381,9 +382,9 @@ class BasePlugin:
                             if value is not None:
                                 UpdateDevice(str(name), value)
                     self.LiveDataUpdated = True
-                    Domoticz.Log("Live data updated")
+                    Domoticz.Log("Live data updated (SUM) ")
                 except Exception as e:
-                    WriteDebug("Something went wrong during fetching Live Data from Tibber")
+                    WriteDebug("Something went wrong during fetching Live Data from Tibber ")
                     WriteDebug(str(e))
                     pass
 
